@@ -5,11 +5,13 @@ import numpy as np
 from surprise import SVD, Reader, Dataset, accuracy
 from sklearn.metrics.pairwise import cosine_similarity
 import pickle
+from flask_cors import CORS
 
 # dataset_generator.generate_data()
 # generate_svd_model.generate_svd_model()
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def main():
