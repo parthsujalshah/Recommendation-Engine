@@ -9,9 +9,6 @@ from flask_cors import CORS
 import random
 from generators.dataset_generator import image_list
 
-# dataset_generator.generate_data()
-# generate_svd_model.generate_svd_model()
-
 app = Flask(__name__)
 CORS(app)
 
@@ -31,28 +28,27 @@ def book_ids():
     df = pd.read_csv('data.csv')
     ret_list = []
     n = 50
-    for i in df['book_id'][:n]:
-        ret_list.append({
-            'id': i,
-            'description': "Laborum commodo dolore in culpa adipisicing ad eu dolore consequat minim aliqua anim. Duis nulla commodo ea sit. Adipisicing non elit et excepteur tempor commodo ea laboris enim sit proident excepteur.",
-        })
     for i in range(n):
-        ret_list[i]['image'] = str(df['book_image'][i])
+        ret_list.append({
+            'id': int(df['book_id'][i]),
+            'description': "Laborum commodo dolore in culpa adipisicing ad eu dolore consequat minim aliqua anim. Duis nulla commodo ea sit. Adipisicing non elit et excepteur tempor commodo ea laboris enim sit proident excepteur.",
+            'image': str(image_list[df['image'][i]])
+        })
     return jsonify({
         'books': ret_list
     })
 
-@app.route('/predict/<int:reader_name>/<int:book_id>')
+@app.route('/predict/<reader_name>/<int:book_id>')
 def predict(reader_name, book_id):
     reader_id = None
     if reader_name == 'r1':
         reader_id = 278
     elif reader_name == 'r2':
         reader_id = 280
-    elif reader_name == 'r3':
+    else:
         reader_id = 864
     
-    n_recs = 50
+    n_recs = 9
     svd = SVD()
     pickle_model = 'model.p'
 
@@ -79,15 +75,23 @@ def predict(reader_name, book_id):
 
     # get book metadata
     book_idx = [i[0] for i in sim]
-    books = df.iloc[book_idx][['book_id', 'book_rating', 'num_pages', 'publish_year', 'book_price', 'reader_id']]
+    books = df.iloc[book_idx][['book_id', 'book_rating', 'num_pages', 'publish_year', 'book_price', 'reader_id', 'image']]
 
     # predict using the svd
     books['est'] = books.apply(lambda x: loaded_model.predict(reader_id, x['book_id'], x['book_rating']).est, axis = 1)
 
     # sort predictions in decreasing order and return top n_recs
     books = books.sort_values('est', ascending=False)
+    ret_list = []
+    for i in range(n_recs):
+        ret_list.append({
+            'id': list(books.head(n_recs)['book_id'])[i],
+            'image': image_list[list(books.head(n_recs)['image'])[i]],
+            'description': "Laborum commodo dolore in culpa adipisicing ad eu dolore consequat minim aliqua anim. Duis nulla commodo ea sit. Adipisicing non elit et excepteur tempor commodo ea laboris enim sit proident excepteur.",
+        })
+
     return jsonify({
-        'recommended_books': list(df['book_id'])
+        'recommended_books': ret_list
     })
 
 if __name__ == "__main__":

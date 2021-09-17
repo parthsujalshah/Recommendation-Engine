@@ -15,3 +15,5 @@ def generate_svd_model():
     svd.fit(trainset)
     pickle_model = 'model.p'
     pickle.dump(svd, open(pickle_model, 'wb'))
+
+generate_svd_model()
