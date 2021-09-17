@@ -1,5 +1,4 @@
 from flask import Flask, jsonify
-from generators import dataset_generator, generate_svd_model
 import pandas as pd
 import numpy as np
 from surprise import SVD, Reader, Dataset, accuracy
@@ -7,7 +6,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pickle
 from flask_cors import CORS
 import random
-from generators.dataset_generator import image_list
+from generators.constants import image_list
 
 app = Flask(__name__)
 CORS(app)
@@ -42,11 +41,11 @@ def book_ids():
 def predict(reader_name, book_id):
     reader_id = None
     if reader_name == 'r1':
-        reader_id = 278
+        reader_id = 1577
     elif reader_name == 'r2':
-        reader_id = 280
+        reader_id = 439
     else:
-        reader_id = 864
+        reader_id = 728
     
     n_recs = 9
     svd = SVD()
