@@ -1,10 +1,10 @@
+import Home from './pages/Home';
 import 'antd/dist/antd.css';
-import BookList from './pages/BookList';
 
 function App() {
   return (
-    <div>
-      <BookList />
+    <div style={{justifyContent: "center", alignItems: "center", display: "flex", marginTop: 50}}>
+      <Home />
     </div>
   );
 }

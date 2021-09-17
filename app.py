@@ -6,6 +6,8 @@ from surprise import SVD, Reader, Dataset, accuracy
 from sklearn.metrics.pairwise import cosine_similarity
 import pickle
 from flask_cors import CORS
+import random
+from generators.dataset_generator import image_list
 
 # dataset_generator.generate_data()
 # generate_svd_model.generate_svd_model()
@@ -24,15 +26,32 @@ def reader_ids():
         'reader_ids': list(df['reader_id'])[:50]
     })
 
-@app.route('/book_ids')
+@app.route('/books')
 def book_ids():
     df = pd.read_csv('data.csv')
+    ret_list = []
+    n = 50
+    for i in df['book_id'][:n]:
+        ret_list.append({
+            'id': i,
+            'description': "Laborum commodo dolore in culpa adipisicing ad eu dolore consequat minim aliqua anim. Duis nulla commodo ea sit. Adipisicing non elit et excepteur tempor commodo ea laboris enim sit proident excepteur.",
+        })
+    for i in range(n):
+        ret_list[i]['image'] = str(df['book_image'][i])
     return jsonify({
-        'book_ids': list(df['book_id'])[:50]
+        'books': ret_list
     })
 
-@app.route('/predict/<int:reader_id>/<int:book_id>')
-def predict(reader_id, book_id):
+@app.route('/predict/<int:reader_name>/<int:book_id>')
+def predict(reader_name, book_id):
+    reader_id = None
+    if reader_name == 'r1':
+        reader_id = 278
+    elif reader_name == 'r2':
+        reader_id = 280
+    elif reader_name == 'r3':
+        reader_id = 864
+    
     n_recs = 50
     svd = SVD()
     pickle_model = 'model.p'
