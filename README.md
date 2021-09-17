@@ -6,10 +6,10 @@ The purpose of this application is to recommend books for its users. The suggest
     2. The book selected by the user (for similar recommendations)
 
 ## Using the application:
-    - The user fills a reader name and clicks on submit button
-    - The user is redirected to a page where there is a list of options of all the books available
-    - User will select a book on the basis of which he/she wants similar recommendations
-    - The user will get 9 similar books recommendations
+- The user fills a reader name and clicks on submit button
+- The user is redirected to a page where there is a list of options of all the books available
+- User will select a book on the basis of which he/she wants similar recommendations
+- The user will get 9 similar books recommendations
 
 ### Dataset
 A csv file for the dataset has been generated using python. The dataset will be used for applications of recommendation systems.
