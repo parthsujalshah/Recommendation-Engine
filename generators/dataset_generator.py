@@ -1,6 +1,6 @@
 import pandas as pd
 from random import randint
-from .constants import image_list
+from constants.constants import image_list
 
 def generate_data(n_books=3000, n_genres=10, n_authors=450, n_publishers=50, n_readers = 3000, dataset_size = 100000):
     d = pd.DataFrame({

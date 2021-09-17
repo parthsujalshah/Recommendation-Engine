@@ -6,7 +6,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pickle
 from flask_cors import CORS
 import random
-from generators.constants import image_list
+from generators.constants.constants import image_list
 
 app = Flask(__name__)
 CORS(app)
