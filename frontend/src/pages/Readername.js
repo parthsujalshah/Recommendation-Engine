@@ -1,16 +1,21 @@
 import React from "react";
 import { Card, Form, Input, Button } from 'antd';
+import { useHistory } from "react-router-dom";
+
 
 const Readername = props => {
+    const history = useHistory();
     const onFinish = (values) => {
         console.log('Success:', values);
         localStorage.setItem('readername', values.readername)
+        history.push('/books');
+
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
     return (
-        <Card style={{display: "flex", backgroundColor: '#f0f0f0'}}>
+        <Card style={{ display: "flex", backgroundColor: '#f0f0f0' }}>
             <Form
                 name="basic"
                 labelCol={{
@@ -27,7 +32,7 @@ const Readername = props => {
                 autoComplete="off"
             >
                 <Form.Item
-                    label="Readername"
+                    label="Reader"
                     name="readername"
                     rules={[
                         {
