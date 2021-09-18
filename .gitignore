@@ -2,3 +2,5 @@ env/
 **/*.pyc/
 **/__pycache__
 frontend/node_modules/
+# Local Netlify folder
+.netlify
