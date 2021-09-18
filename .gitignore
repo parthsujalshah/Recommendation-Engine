@@ -3,4 +3,6 @@ env/
 **/__pycache__
 frontend/node_modules/
 # Local Netlify folder
+frontend/build/
+# Local Netlify folder
 .netlify
