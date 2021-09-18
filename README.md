@@ -1,11 +1,11 @@
-# HYBRID RECOMMENDER
+# PERSONALISED RECOMMENDER
 
-### Purpose
-The purpose of this application is to make personalised recommendations of books for its users. The recommendations are based on 2 things:
+### Introduction
+The purpose of this application is to make personalised recommendations of books for its users. The recommendations are based on 2 things (thus, it uses a hybrid model):
     1. Choice of the user: Based on how the user rates each book
     2. The book selected by the user: To suggest similar books
 
-## Using the application:
+### Using the application:
 - The user fills a reader name and clicks on submit button. In this case, there are 3 reader names which are linked to the dataset: "r1", "r2", and "r3". To get the results, please fill one of these reader names.
 - The user is redirected to a page where there is a list of options of all the books available
 - User will select a book on the basis of which he/she wants similar recommendations
@@ -41,7 +41,7 @@ SVD is being used and a pickle file is generated
 - Approaches user:
     - Collaborative Filtering: Collaborative filtering is the process of predicting the interests of a user by identifying preferences and information from many users.  The underlying intuition behind collaborative filtering is that if user A and B have similar taste in a product, then A and B are likely to have similar taste in other products as well.
     - Content Based Systems: Content based systems generates recommendations based on the users preferences and profile. They try to match users to items which they’ve liked previously.
-- Working:
+- Working of the Hybrid Model:
     - The selected book id will be used in a content-based model (cosine similarity) to compute 50 most similar books
     - The reader id will be used to predict the ratings the user might give to these 50 books using a collaborative filtering model (SVD)
     - Return the top 9 books with the highest predicted rating
