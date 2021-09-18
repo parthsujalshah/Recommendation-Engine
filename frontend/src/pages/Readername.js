@@ -37,12 +37,14 @@ const Readername = props => {
                     rules={[
                         {
                             required: true,
-                            message: 'Please input your username!',
+                            message: 'Please input your readername!',
                         },
                     ]}
                 >
                     <Input />
                 </Form.Item>
+
+                <p style={{fontSize: 13}}>Please use the readername "r1", "r2" or "r3".</p>
 
                 <Form.Item
                     wrapperCol={{
