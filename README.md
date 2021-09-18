@@ -2,8 +2,8 @@
 
 ### Introduction
 The purpose of this application is to make personalised recommendations of books for its users. The recommendations are based on 2 things (thus, it uses a hybrid model):
-    1. Choice of the user: Based on how the user rates each book
-    2. The book selected by the user: To suggest similar books
+    - Choice of the user: Based on how the user rates each book
+    - The book selected by the user: To suggest similar books
 
 ### Using the application:
 - The user fills a reader name and clicks on submit button. In this case, there are 3 reader names which are linked to the dataset: "r1", "r2", and "r3". To get the results, please fill one of these reader names.
