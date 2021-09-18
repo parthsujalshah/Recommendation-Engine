@@ -46,3 +46,18 @@ SVD is being used and a pickle file is generated
     - The reader id will be used to predict the ratings the user might give to these 50 books using a collaborative filtering model (SVD)
     - Return the top 9 books with the highest predicted rating
 
+### Running the application locally:
+- Install python and node
+- Clone the repo
+- Go to the project root dir
+- For python:
+```bash
+pip install -r requirements.txt
+python app.py
+```
+- For node:
+```bash
+cd frontend/
+npm install
+npm start
+```
