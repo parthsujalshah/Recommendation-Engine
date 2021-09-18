@@ -1,5 +1,7 @@
 # PERSONALISED RECOMMENDER
 
+[Live Link]https://6145cefcd1832a59bb13e7ae--books-recommender.netlify.app/
+
 ### Introduction
 The purpose of this application is to make personalised recommendations of books for its users. The recommendations are based on 2 things (thus, it uses a hybrid model):
 - Choice of the user: Based on how the user rates each book
