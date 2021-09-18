@@ -11,9 +11,10 @@
 - [Flow Chart](https://drive.google.com/file/d/1F21K_6y1qwv14tALZHg8-Zz6hSpj--iH/view?usp=sharing)
 
 ### Introduction
-The purpose of this application is to make personalised recommendations of books for its users. The recommendations are based on 2 things (thus, it uses a hybrid model):
+The purpose of this application is to make personalised recommendations of books for its users. The recommendations are based on 2 things:
 - Choice of the user: Based on how the user rates each book
 - The book selected by the user: To suggest similar books
+**Note: A new dataset has been generated for this application and a hybrid(method explained below) and a hybrid methodology has been deviced.**
 
 ### Using the application:
 Please note that the books are identified by book ids. When a user selects a book, or a book is recommended to the user, it is the book id which is taken into consideration.
