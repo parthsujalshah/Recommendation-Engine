@@ -1,9 +1,9 @@
 # HYBRID RECOMMENDER
 
 ### Purpose
-The purpose of this application is to recommend books for its users. The suggestion is based on 2 things:
-    1. Choice of the user (based on the book ratings)
-    2. The book selected by the user (for similar recommendations)
+The purpose of this application is to make personalised recommendations of books for its users. The recommendations are based on 2 things:
+    1. Choice of the user: Based on how the user rates each book
+    2. The book selected by the user: To suggest similar books
 
 ## Using the application:
 - The user fills a reader name and clicks on submit button. In this case, there are 3 reader names which are linked to the dataset: "r1", "r2", and "r3". To get the results, please fill one of these reader names.
