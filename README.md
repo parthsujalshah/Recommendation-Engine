@@ -16,6 +16,7 @@ The purpose of this application is to make personalised recommendations of books
 - The book selected by the user: To suggest similar books
 
 ### Using the application:
+Please note that the books are identified by book ids. When a user selects a book, or a book is recommended to the user, it is the book id which is taken into consideration.
 - The user fills a reader name and clicks on submit button. In this case, there are 3 reader names which are linked to the dataset: "r1", "r2", and "r3". To get the results, please fill one of these reader names.
 - The user is redirected to a page where there is a list of options of all the books available
 - User will select a book on the basis of which he/she wants similar recommendations
